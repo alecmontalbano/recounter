@@ -5,17 +5,25 @@ const Counter = {
   count: 0,
   start: function(){
     this.cacheDOM();
-    this.bindEvents();
+    this.bindAddEvent();
+    this.bindSubEvent();
     this.render();
   },
   cacheDOM: function(){
     this.root = document.querySelector('#app');
-    this.button = document.querySelector('#increment');
+    this.incrementer = document.querySelector('#increment');
+    this.decrementer = document.querySelector('#decrement');
     this.output = document.querySelector('#output');
   },
-  bindEvents: function(){
-    this.button.addEventListener('click', () => {
+  bindAddEvent: function(){
+      this.incrementer.addEventListener('click', () => {
       this.count += 1;
+      this.render();
+    });
+  },
+  bindSubEvent: function(){
+      this.decrementer.addEventListener('click', () => {
+      this.count -= 1;
       this.render();
     });
   },
