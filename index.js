@@ -6,7 +6,7 @@ const port = 8080;
 
 server.use(express.static(__dirname + '/public'));
 
-server.get('counter', (request, response) => {
+server.get('/recounter', (request, response) => {
   response.sendFile('public/html/index.html', {root: __dirname});
 });
 
