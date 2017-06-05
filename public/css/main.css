@@ -7,7 +7,7 @@ body {
 p {
   font-family: "Roboto Slab", sans-serif;
   text-align: center;
-  color: #ff5252;
+  color: #ffffff;
   font-size: 160px;
 }
 
@@ -23,5 +23,8 @@ and (min-width: 0px)
 and (max-width: 768px) {
   p {
     font-size:100px;
+  }
+  button {
+    font-size:6  0px;
   }
 }
