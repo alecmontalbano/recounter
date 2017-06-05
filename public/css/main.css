@@ -1,3 +1,27 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700|Rubik+Mono+One);
+
 body {
-  background-color: red;
+  background-color: #4fc3f7;
+}
+
+p {
+  font-family: "Roboto Slab", sans-serif;
+  text-align: center;
+  color: #ff5252;
+  font-size: 160px;
+}
+
+button {
+  font-family: "Roboto Slab", sans-serif;
+  text-align: center;
+  color: black;
+  font-size: 120px;
+}
+
+@media only screen
+and (min-width: 0px)
+and (max-width: 768px) {
+  p {
+    font-size:100px;
+  }
 }
