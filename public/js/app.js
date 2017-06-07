@@ -12,21 +12,21 @@ const Counter = {
     this.render();
   },
   cacheDOM: function(){
-    this.root = document.querySelector('#app');
-    this.incrementer = document.querySelector('#increment');
-    this.decrementer = document.querySelector('#decrement');
-    this.reset = document.querySelector('#reset');
-    this.output = document.querySelector('#output');
+    this.root = document.querySelector(this.rootElement);
+    this.incrementer = this.root.querySelector('.increment');
+    this.decrementer = this.root.querySelector('.decrement');
+    this.reset = this.root.querySelector('.reset');
+    this.output = this.root.querySelector('.output');
   },
   bindEvents: function(){
-      this.incrementer.addEventListener('click', () => {
-      this.addAmount = parseInt(document.getElementById('addAmount').value);
+    this.incrementer.addEventListener('click', () => {
+      this.addAmount = parseInt(this.root.querySelector('.addAmount').value);
       this.count = this.count += this.addAmount;
       localStorage.setItem('count', this.count);
       this.render();
     });
     this.decrementer.addEventListener('click', () => {
-      this.subAmount = parseInt(document.getElementById('subAmount').value);
+      this.subAmount = parseInt(this.root.querySelector('.subAmount').value);
       this.count = this.count -= this.subAmount;
       localStorage.setItem('count', this.count);
       this.render();
