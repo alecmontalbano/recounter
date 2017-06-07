@@ -2,28 +2,38 @@
 
 const Counter = {
   rootElement: '#app',
-  count: 0,
+  count: parseInt(localStorage.getItem('count')),
   start: function(){
     this.cacheDOM();
-    this.bindAddEvent();
-    this.bindSubEvent();
+    this.bindEvents();
+    if (!this.count) {
+      this.count = 0;
+    }
     this.render();
   },
   cacheDOM: function(){
     this.root = document.querySelector('#app');
     this.incrementer = document.querySelector('#increment');
     this.decrementer = document.querySelector('#decrement');
+    this.reset = document.querySelector('#reset');
     this.output = document.querySelector('#output');
   },
-  bindAddEvent: function(){
+  bindEvents: function(){
       this.incrementer.addEventListener('click', () => {
-      this.count += 1;
+      this.addAmount = parseInt(document.getElementById('addAmount').value);
+      this.count = this.count += this.addAmount;
+      localStorage.setItem('count', this.count);
       this.render();
     });
-  },
-  bindSubEvent: function(){
-      this.decrementer.addEventListener('click', () => {
-      this.count -= 1;
+    this.decrementer.addEventListener('click', () => {
+      this.subAmount = parseInt(document.getElementById('subAmount').value);
+      this.count = this.count -= this.subAmount;
+      localStorage.setItem('count', this.count);
+      this.render();
+    });
+    this.reset.addEventListener('click', () => {
+      this.count = 0;
+      localStorage.setItem('count', this.count);
       this.render();
     });
   },
